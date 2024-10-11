@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analysis Dashboard</title>
+</head>
+<body>
+    <div>
+        <h1>Sentiment Analysis Dashboard</h1>
+        <form method="POST" action="/result/">
+            {% csrf_token %}
+            <textarea name="message" rows="4" cols="50" placeholder="Enter your text here..."></textarea>
+            <br>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+        {% if sentiment %}
+            <h2>{{ sentiment }}</h2>
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
